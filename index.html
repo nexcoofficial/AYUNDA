@@ -72,6 +72,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
+            text-decoration: none;
         }
 
         .nav-menu {
@@ -148,9 +149,9 @@
             opacity: 0.9;
         }
 
-        /* Featured Product Section */
-        .featured-product {
-            padding: 100px 0;
+        /* Products Section */
+        .products {
+            padding: 80px 0;
             background-color: white;
         }
 
@@ -185,14 +186,18 @@
             margin-right: auto;
         }
 
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
         .product-card {
             background-color: white;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .product-card:hover {
@@ -200,20 +205,8 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .product-image {
-            height: 100%;
+            height: 200px;
             overflow: hidden;
         }
 
@@ -229,10 +222,7 @@
         }
 
         .product-content {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 20px;
         }
 
         .product-badge {
@@ -243,10 +233,122 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price-current {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Featured Product Section */
+        .featured-product {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .featured-product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .featured-product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        @media (max-width: 768px) {
+            .featured-product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .featured-product-image {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .featured-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .featured-product-card:hover .featured-product-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-product-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-product-title {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 15px;
@@ -254,13 +356,13 @@
             line-height: 1.3;
         }
 
-        .product-desc {
+        .featured-product-desc {
             font-size: 1rem;
             color: #666;
             margin-bottom: 20px;
         }
 
-        .product-features {
+        .featured-product-features {
             margin-bottom: 25px;
         }
 
@@ -288,235 +390,6 @@
             font-size: 0.9rem;
             color: #555;
             font-weight: 500;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .price-current {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .price-old {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 1.2rem;
-            margin-right: 15px;
-        }
-
-        .price-discount {
-            background-color: var(--discount);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-left: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Why Choose Us Section */
-        .why-us {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .feature-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .feature-card-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(255, 107, 107, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .feature-card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .feature-card-desc {
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 0;
-            background-color: white;
-            position: relative;
-        }
-
-        .testimonials::before {
-            content: '"';
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 200px;
-            color: rgba(255, 107, 107, 0.05);
-            font-family: serif;
-            line-height: 0;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .testimonial-name {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .testimonial-role {
-            font-size: 0.85rem;
-            color: #777;
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            padding: 80px 0;
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-        }
-
-        .newsletter-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-desc {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 30px 0 0 30px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .newsletter-btn {
-            padding: 0 25px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 0 30px 30px 0;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .newsletter-btn:hover {
-            background-color: #ff5252;
         }
 
         /* Footer */
@@ -614,7 +487,7 @@
             .section-title {
                 font-size: 2.2rem;
             }
-            .product-content {
+            .featured-product-content {
                 padding: 30px;
             }
         }
@@ -648,17 +521,6 @@
             .section-title {
                 font-size: 2rem;
             }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .newsletter-input {
-                border-radius: 30px;
-                margin-bottom: 10px;
-            }
-            .newsletter-btn {
-                border-radius: 30px;
-                padding: 15px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -674,7 +536,7 @@
             .section-subtitle {
                 font-size: 1rem;
             }
-            .product-title {
+            .featured-product-title {
                 font-size: 1.5rem;
             }
             .price-current {
@@ -705,87 +567,19 @@
         .fade-in-delay-3 {
             transition-delay: 0.6s;
         }
-
-        /* Product Gallery */
-        .product-gallery {
-            margin-top: 40px;
-        }
-
-        .product-gallery-main {
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .product-gallery-main img {
-            width: 100%;
-            height: auto;
-        }
-
-        .product-gallery-thumbs {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-
-        .product-thumb {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .product-thumb.active {
-            opacity: 1;
-            border: 2px solid var(--primary);
-        }
-
-        .product-thumb:hover {
-            opacity: 1;
-        }
-
-        .product-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-details-section {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-
-        .product-details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .product-details-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container header-container">
-            <div class="logo">AyundaShop</div>
+            <a href="index.html" class="logo">AyundaShop</a>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button class="mobile-menu-btn">☰</button>
             </nav>
@@ -797,227 +591,81 @@
         <div class="container">
             <h1 class="fade-in">Temukan Produk Berkualitas Premium Hanya di AyundaShop</h1>
             <p class="fade-in fade-in-delay-1">Kami menyediakan produk pilihan dengan kualitas terbaik untuk kebutuhan sehari-hari Anda</p>
-            <a href="#featured-product" class="btn btn-primary fade-in fade-in-delay-2">Lihat Produk</a>
+            <a href="#products" class="btn btn-primary fade-in fade-in-delay-2">Lihat Produk</a>
         </div>
     </section>
 
-    <!-- Featured Product Section -->
-    <section id="featured-product" class="featured-product">
+    <!-- Products Section -->
+    <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title fade-in">Produk Terbaru Kami</h2>
-            <p class="section-subtitle fade-in fade-in-delay-1">Produk berkualitas premium dengan berbagai keunggulan</p>
+            <h2 class="section-title fade-in">Produk Pilihan Kami</h2>
+            <p class="section-subtitle fade-in fade-in-delay-1">Berbagai produk berkualitas untuk kebutuhan Anda</p>
             
-            <div class="product-card fade-in fade-in-delay-2">
-                <div class="product-grid">
+            <div class="products-grid">
+                <!-- Product 1: Pembersih Telinga LED -->
+                <div class="product-card fade-in fade-in-delay-1">
                     <div class="product-image">
                         <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasb-m3opkk2ld2b2ef.webp" alt="Pembersih Telinga LED">
                     </div>
                     <div class="product-content">
-                        <div>
-                            <span class="product-badge">Best Seller</span>
-                            <h3 class="product-title">Pembersih Telinga LED Premium</h3>
-                            <p class="product-desc">Pembersih telinga modern dengan kamera HD dan lampu LED yang memudahkan Anda membersihkan telinga dengan aman dan nyaman.</p>
-                            
-                            <div class="product-features">
-                                <div class="feature-item">
-                                    <span class="feature-icon">✓</span>
-                                    <span class="feature-text">Dilengkapi kamera HD resolusi tinggi</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-icon">✓</span>
-                                    <span class="feature-text">6 lampu LED untuk penerangan maksimal</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-icon">✓</span>
-                                    <span class="feature-text">Ujung silikon lembut yang aman</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-icon">✓</span>
-                                    <span class="feature-text">Terhubung ke smartphone via WiFi</span>
-                                </div>
-                            </div>
+                        <span class="product-badge">Best Seller</span>
+                        <h3 class="product-title">Pembersih Telinga LED Premium</h3>
+                        <div class="product-price">
+                            <span class="price-old">Rp 299.000</span>
+                            <span class="price-current">Rp 189.000</span>
                         </div>
-                        
-                        <div>
-                            <div class="product-price">
-                                <span class="price-old">Rp 299.000</span>
-                                <span class="price-current">Rp 189.000</span>
-                                <span class="price-discount">37% OFF</span>
-                            </div>
-                            <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                        <a href="product-earcleaner.html" class="btn btn-primary btn-block">Detail Produk</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 (Dummy) -->
+                <div class="product-card fade-in fade-in-delay-2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3" alt="Smart Watch">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">New</span>
+                        <h3 class="product-title">Smart Watch Pro X1</h3>
+                        <div class="product-price">
+                            <span class="price-old">Rp 1.299.000</span>
+                            <span class="price-current">Rp 899.000</span>
                         </div>
+                        <a href="#" class="btn btn-primary btn-block">Detail Produk</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 (Dummy) -->
+                <div class="product-card fade-in fade-in-delay-2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3" alt="Camera">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">Popular</span>
+                        <h3 class="product-title">Mini Camera HD 4K</h3>
+                        <div class="product-price">
+                            <span class="price-old">Rp 799.000</span>
+                            <span class="price-current">Rp 499.000</span>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-block">Detail Produk</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 (Dummy) -->
+                <div class="product-card fade-in fade-in-delay-3">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3" alt="Air Purifier">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">Limited</span>
+                        <h3 class="product-title">Air Purifier Premium</h3>
+                        <div class="product-price">
+                            <span class="price-old">Rp 2.499.000</span>
+                            <span class="price-current">Rp 1.899.000</span>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-block">Detail Produk</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Product Details Section -->
-    <section class="product-details-section">
-        <div class="container">
-            <h2 class="section-title fade-in">Detail Produk</h2>
-            <p class="section-subtitle fade-in fade-in-delay-1">Pembersih Telinga LED dengan Kamera HD</p>
-            
-            <div class="product-details-grid">
-                <div class="product-gallery fade-in fade-in-delay-1">
-                    <div class="product-gallery-main">
-                        <img id="gallery-main-img" src="https://down-id.img.susercontent.com/file/id-11134207-7rasb-m3opkk2ld2b2ef.webp" alt="Pembersih Telinga LED">
-                    </div>
-                    <div class="product-gallery-thumbs">
-                        <div class="product-thumb active" data-img="https://down-id.img.susercontent.com/file/id-11134207-7rasb-m3opkk2ld2b2ef.webp">
-                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasb-m3opkk2ld2b2ef.webp" alt="Pembersih Telinga LED - 1">
-                        </div>
-                        <div class="product-thumb" data-img="https://down-id.img.susercontent.com/file/id-11134207-7rasg-m3opkk2legvidf.webp">
-                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasg-m3opkk2legvidf.webp" alt="Pembersih Telinga LED - 2">
-                        </div>
-                        <div class="product-thumb" data-img="https://down-id.img.susercontent.com/file/id-11134207-7rask-m3opkk2l7g1aeb.webp">
-                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rask-m3opkk2l7g1aeb.webp" alt="Pembersih Telinga LED - 3">
-                        </div>
-                        <div class="product-thumb" data-img="https://down-id.img.susercontent.com/file/id-11134207-7rasj-m3opkk2la966ac.webp">
-                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasj-m3opkk2la966ac.webp" alt="Pembersih Telinga LED - 4">
-                        </div>
-                        <div class="product-thumb" data-img="https://down-id.img.susercontent.com/file/id-11134207-7rasa-m3opkk2lfvfy36.webp">
-                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasa-m3opkk2lfvfy36.webp" alt="Pembersih Telinga LED - 5">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-content fade-in fade-in-delay-2">
-                    <h3 class="product-title">Pembersih Telinga LED Premium dengan Kamera HD</h3>
-                    <p class="product-desc">Cara modern dan aman untuk membersihkan telinga Anda sendiri di rumah. Dilengkapi dengan kamera HD dan lampu LED yang terang untuk visibilitas maksimal.</p>
-                    
-                    <div style="margin: 20px 0;">
-                        <h4 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; color: var(--dark);">Fitur Unggulan:</h4>
-                        <ul style="list-style: none; padding-left: 5px;">
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>Kamera HD</strong>: Melihat kondisi telinga secara real time melalui smartphone
-                            </li>
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>6 LED Ultra Terang</strong>: Menerangi bagian dalam telinga dengan sempurna
-                            </li>
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>Ujung Silikon Lembut</strong>: Aman untuk anak-anak dan dewasa
-                            </li>
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>Koneksi WiFi</strong>: Terhubung langsung ke smartphone tanpa kabel
-                            </li>
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>3 Tipe Ujung Berbeda</strong>: Untuk berbagai kebutuhan pembersihan
-                            </li>
-                            <li style="position: relative; padding-left: 30px; margin-bottom: 12px;">
-                                <span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">✓</span>
-                                <strong>Tahan Air</strong>: Mudah dibersihkan setelah digunakan
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="product-price">
-                        <span class="price-old">Rp 299.000</span>
-                        <span class="price-current">Rp 189.000</span>
-                        <span class="price-discount">37% OFF</span>
-                    </div>
-                    
-                    <div style="margin-top: 25px;">
-                        <a href="#" class="btn btn-primary" style="margin-right: 15px;">Beli Sekarang</a>
-                        <a href="#" class="btn btn-outline">Tambah ke Keranjang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-us">
-        <div class="container">
-            <h2 class="section-title fade-in">Mengapa Memilih AyundaShop?</h2>
-            <p class="section-subtitle fade-in fade-in-delay-1">Kami berkomitmen memberikan pengalaman belanja terbaik dengan produk berkualitas</p>
-            
-            <div class="features-grid">
-                <div class="feature-card fade-in fade-in-delay-1">
-                    <div class="feature-card-icon">🛒</div>
-                    <h3 class="feature-card-title">Produk Premium</h3>
-                    <p class="feature-card-desc">Semua produk kami dipilih dengan teliti untuk memastikan kualitas terbaik untuk Anda</p>
-                </div>
-                
-                <div class="feature-card fade-in fade-in-delay-2">
-                    <div class="feature-card-icon">🚚</div>
-                    <h3 class="feature-card-title">Pengiriman Cepat</h3>
-                    <p class="feature-card-desc">Kami bekerja sama dengan jasa kurir terpercaya untuk memastikan produk sampai tepat waktu</p>
-                </div>
-                
-                <div class="feature-card fade-in fade-in-delay-3">
-                    <div class="feature-card-icon">💰</div>
-                    <h3 class="feature-card-title">Harga Terbaik</h3>
-                    <p class="feature-card-desc">Dapatkan produk berkualitas dengan harga yang kompetitif dan promo menarik</p>
-                </div>
-                
-                <div class="feature-card fade-in fade-in-delay-3">
-                    <div class="feature-card-icon">⭐</div>
-                    <h3 class="feature-card-title">Layanan Pelanggan</h3>
-                    <p class="feature-card-desc">Tim layanan pelanggan kami siap membantu dengan ramah dan responsif</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title fade-in">Testimonials</h2>
-            <p class="section-subtitle fade-in fade-in-delay-1">Pendapat pelanggan tentang pengalaman mereka berbelanja di AyundaShop</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in fade-in-delay-1">
-                    <p class="testimonial-text">"Saya sangat puas berbelanja di AyundaShop. Produknya berkualitas, pengiriman cepat, dan pelayanan ramah. Pembersih telinga LED yang saya beli sangat membantu untuk menjaga kebersihan telinga keluarga."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">S</div>
-                        <div>
-                            <div class="testimonial-name">Siti Rahma</div>
-                            <div class="testimonial-role">Jakarta</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in fade-in-delay-2">
-                    <p class="testimonial-text">"Produk yang saya beli dari AyundaShop selalu sesuai dengan ekspektasi. Kualitas premium dengan harga yang terjangkau. Saya sudah merekomendasikan toko ini ke semua teman-teman saya!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">A</div>
-                        <div>
-                            <div class="testimonial-name">Anita Dewi</div>
-                            <div class="testimonial-role">Bandung</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in fade-in-delay-3">
-                    <p class="testimonial-text">"Pembersih Telinga LED yang saya beli sangat bagus! Kamera HD-nya membantu saya melihat kondisi telinga dengan jelas. Saya merasa lebih aman membersihkan telinga anak-anak dengan alat ini."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">B</div>
-                        <div>
-                            <div class="testimonial-name">Budi Santoso</div>
-                            <div class="testimonial-role">Surabaya</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2 class="newsletter-title fade-in">Dapatkan Update Terbaru</h2>
-            <p class="newsletter-desc fade-in fade-in-delay-1">Berlangganan newsletter kami untuk mendapatkan informasi promo dan produk terbaru</p>
-            
-            <form class="newsletter-form fade-in fade-in-delay-2">
-                <input type="email" class="newsletter-input" placeholder="Masukkan email Anda...">
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
         </div>
     </section>
 
@@ -1041,11 +689,11 @@
                 <div>
                     <h3 class="footer-title">Tautan Cepat</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Produk</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 
@@ -1053,7 +701,7 @@
                     <h3 class="footer-title">Kategori</h3>
                     <ul class="footer-links">
                         <li><a href="#">Elektronik</a></li>
-                        <li><a href="#">Kesehatan & Kecantikan</a></li>
+                        <li><a href="#">Kesehatan</a></li>
                         <li><a href="#">Rumah Tangga</a></li>
                         <li><a href="#">Gadget</a></li>
                         <li><a href="#">Aksesoris</a></li>
@@ -1072,7 +720,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 AyundaShop. All Rights Reserved.</p>
+                <p>&copy; 2025 AyundaShop. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1102,30 +750,6 @@
             
             fadeElements.forEach(element => {
                 observer.observe(element);
-            });
-            
-            // Product Gallery
-            const mainImg = document.getElementById('gallery-main-img');
-            const thumbs = document.querySelectorAll('.product-thumb');
-            
-            thumbs.forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    // Update active thumbnail
-                    thumbs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update main image
-                    const imgSrc = this.getAttribute('data-img');
-                    if (mainImg) {
-                        mainImg.src = imgSrc;
-                        
-                        // Add fade effect
-                        mainImg.style.opacity = '0';
-                        setTimeout(() => {
-                            mainImg.style.opacity = '1';
-                        }, 100);
-                    }
-                });
             });
         });
     </script>
